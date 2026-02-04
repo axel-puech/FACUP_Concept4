@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/b5814409-0364-4d56-8523-09ba1b16cb42>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 0cc2ad6d-fc52-4487-9193-8a1e03e0375b
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 0cc2ad6d-fc52-4487-9193-8a1e03e0375b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 9f07e402-4416-4a8a-be89-b8236b35da1c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/9f07e402-4416-4a8a-be89-b8236b35da1c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e90ba432-efb0-4d7e-bd42-d3f6a1dae487
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    headPanel: false
+    headPanelFlagsTextures: false
+    headPanelMaterial: false
+    parent: false
+    scrollingTimeDurations: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - parent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scrollingTimeDurations: !<float[]>
+        []
+      headPanelMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      headPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      headPanelFlagsTextures: !<reference.Texture[]>
+        []
+  ScriptTypes:
+    -
+      {}

@@ -1,0 +1,51 @@
+- !<AssetImportMetadata/406309ff-a7bf-480b-8193-1861e6b94dd6>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 1205eca1-1ac6-4353-ac14-aeb6ab930f1d
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 1205eca1-1ac6-4353-ac14-aeb6ab930f1d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 72a0ea93-045c-48eb-a5c5-2ebc7d1992c4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/72a0ea93-045c-48eb-a5c5-2ebc7d1992c4>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: acf2e670-6fe3-4d05-af51-264c8bdf8457
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    defaultButtonMaterials: false
+    parent: false
+    rankingButtonsMaterials: false
+    rankingFlagsTextures: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - parent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rankingButtonsMaterials: !<reference.Material[]>
+        []
+      rankingFlagsTextures: !<reference.Texture[]>
+        []
+      defaultButtonMaterials: !<reference.Texture[]>
+        []
+  ScriptTypes:
+    -
+      {}
