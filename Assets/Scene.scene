@@ -1204,6 +1204,21 @@
     []
   Components:
     - !<own> d59eddc5-2b7c-4d32-b4f3-2a95396c409c
+- !<SceneObject/3ef518a9-108a-4a94-bc8e-7c06de28b81a>
+  PrefabRemaps:
+    []
+  Name: HeadPanelParent
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 18.579252, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> bde03407-aee7-454b-950b-02be76a7ba91
+  Components:
+    []
 - !<ScreenTransform/3f0881ad-38f1-4dd1-a554-c1f4189ef870>
   PrefabRemaps:
     []
@@ -1463,6 +1478,26 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<RenderMeshVisual/485bc5eb-e0a8-4539-be63-3f51a6118f7e>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d5d2bdd7-183b-46eb-a064-527cf35e6201
+  Mesh: !<reference> a8f961b9-78b7-4bad-ba49-af954096d222
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/48d0289a-a369-4d2d-9cbe-a57d837fd193>
   PrefabRemaps:
     []
@@ -1903,6 +1938,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 640f93da-5c9b-4498-be1b-ab10663a2598
+    - !<own> 3ef518a9-108a-4a94-bc8e-7c06de28b81a
   Components:
     - !<own> 07f468f5-2954-46f0-b28a-3d437a101f43
 - !<SceneObject/68a32e87-ac9b-416a-b52a-313c9ad57262>
@@ -3269,6 +3305,21 @@
     - !<own> a794cc05-688b-4476-80e0-d4b979d6440e
     - !<own> dfcd7009-1532-4ce9-94bd-28a53cccf821
     - !<own> 5872783e-ee35-40d5-aea3-510a47e30058
+- !<SceneObject/bde03407-aee7-454b-950b-02be76a7ba91>
+  PrefabRemaps:
+    []
+  Name: Plane
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 485bc5eb-e0a8-4539-be63-3f51a6118f7e
 - !<SceneObject/be1152f3-1dbd-475d-ae66-0bb44faa719a>
   PrefabRemaps:
     []
@@ -3613,12 +3664,18 @@
   Enabled: true
   ScriptAsset: !<reference> 0cc2ad6d-fc52-4487-9193-8a1e03e0375b
   ScriptInputsDefault:
-    {}
+    scrolling: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       parent: !<reference.SceneObject> e5f3f9ed-8f70-4102-9792-b02f523c0d26
+      scrolling: false
+      headPanelScroll: !<reference.SceneObject> 3ef518a9-108a-4a94-bc8e-7c06de28b81a
+      animationDuration: !<float> 2.000000
+      scrollingHeadPanelMaterial: !<reference.Material> d5d2bdd7-183b-46eb-a064-527cf35e6201
+      gapNumber: 19
+      loopNumber: 1
       scrollingTimeDurations: !<float[]>
         - 0.000000
         - 0.050000
@@ -3635,26 +3692,26 @@
       headPanelMaterial: !<reference.Material> 6e9b85c7-6905-4364-b12b-c4aca8003d6e
       headPanel: !<reference.SceneObject> 640f93da-5c9b-4498-be1b-ab10663a2598
       headPanelFlagsTextures: !<reference.Texture[]>
-        - !<reference> b2f2643a-ec6d-4c16-8929-5626b2514cc5
-        - !<reference> 49346303-6280-4c23-97ee-e1ae9ee5e742
-        - !<reference> 4e09a7a9-9422-4e5b-bf81-db3bcb11b44d
-        - !<reference> ff946941-8b9d-4fb0-b7de-8386145c50fb
-        - !<reference> 5602ea11-0492-48fd-8595-f89469fbb671
-        - !<reference> 0806d34b-390a-4ae3-8cc4-488aa47649c5
-        - !<reference> 144e4e24-b8db-40de-a6e9-d807a55c377d
-        - !<reference> 579d3d8f-be17-4205-9af4-59cc5bb4127d
-        - !<reference> e0be5ef7-8d1d-479a-801d-c4fda3df9142
-        - !<reference> 112b8b6f-47cf-4933-b6a6-bad241429fb4
-        - !<reference> e005cdb0-ca0f-4d16-9e31-05271d837b29
-        - !<reference> e51615e0-110c-4462-8a08-cdfaffd81854
-        - !<reference> 0fab6f80-42a8-4e59-a97c-a2b4a5942a3f
-        - !<reference> ade2472e-4eb8-4548-92f8-0c686bb81de4
-        - !<reference> fae462a5-1fa6-4914-b9cd-d536367899e4
-        - !<reference> 027cff00-24f2-4c59-b67d-3de06d0529de
-        - !<reference> 69940a8f-e789-4775-a1c3-f9238ac88555
-        - !<reference> 44a7cc50-262d-4edf-b9a9-07de9831eec3
-        - !<reference> 601632f3-e1d0-4a9d-85bd-4c743919b09f
-        - !<reference> 7ad8996e-141f-4f17-9865-7f3a79373337
+        - !<reference> 0b5a9fea-ba9f-4cf5-9039-a94ce5522df5
+        - !<reference> 98e11c26-c3d9-4ea8-b51a-b4d30c6c7623
+        - !<reference> bd8b1886-2c50-418f-8721-564a12ac0763
+        - !<reference> 55e8778b-9490-48ff-8991-6ff5c1e9fdc3
+        - !<reference> cc49ddaf-db01-4d3e-ae83-53c1e19f9beb
+        - !<reference> f40a72d9-e130-4212-a435-c262e19c4a1c
+        - !<reference> c289ce4e-a931-4097-8ef6-fd7e63abb003
+        - !<reference> 86dfd45b-1fc2-40b8-9852-03ac02016f88
+        - !<reference> b2285e4b-bcce-4d0b-ba2e-4fc8f4eb1902
+        - !<reference> d9e5aee2-f48e-4817-9c99-c877c2c6e6bf
+        - !<reference> 15308fa0-30ba-43ed-884b-c0047c5b7704
+        - !<reference> 9a7a9738-793c-4371-acba-cf624cef4756
+        - !<reference> 59d5c843-6448-43ed-97b0-70bf960aec77
+        - !<reference> e9988aef-0374-4bc1-9d5e-25055319c8fa
+        - !<reference> e34e202c-7377-4d3b-9334-3773a5148ebe
+        - !<reference> ac0ac0e2-dfc8-4e0a-b043-0a6d8a4953f3
+        - !<reference> 986e2867-ccb4-4b25-8e65-e4a03696956b
+        - !<reference> 97c58731-6d7a-4bf9-b77e-e505f8eb4096
+        - !<reference> 613c8a33-c310-4659-9041-2511096978d7
+        - !<reference> e16190c7-270c-46eb-badc-57a7705e4b35
   ScriptTypes:
     "":
       {}

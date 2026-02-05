@@ -26,11 +26,17 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    animationDuration: false
+    gapNumber: false
     headPanel: false
     headPanelFlagsTextures: false
     headPanelMaterial: false
+    headPanelScroll: false
+    loopNumber: false
     parent: false
     scaleDuration: false
+    scrolling: false
+    scrollingHeadPanelMaterial: false
     scrollingTimeDurations: false
     sizeMultiplier: false
   ScriptTypesHidden:
@@ -43,6 +49,12 @@
     []
   DefaultScriptInputs:
     - parent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scrolling: false
+      headPanelScroll: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      animationDuration: !<float> 0.000000
+      scrollingHeadPanelMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      gapNumber: 0
+      loopNumber: 0
       scrollingTimeDurations: !<float[]>
         []
       scaleDuration: !<float> 0.000000
