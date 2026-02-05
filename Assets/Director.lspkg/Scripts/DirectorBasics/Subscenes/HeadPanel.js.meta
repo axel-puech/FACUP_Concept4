@@ -30,7 +30,9 @@
     headPanelFlagsTextures: false
     headPanelMaterial: false
     parent: false
+    scaleDuration: false
     scrollingTimeDurations: false
+    sizeMultiplier: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -43,6 +45,8 @@
     - parent: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       scrollingTimeDurations: !<float[]>
         []
+      scaleDuration: !<float> 0.000000
+      sizeMultiplier: 0.500000
       headPanelMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
       headPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       headPanelFlagsTextures: !<reference.Texture[]>

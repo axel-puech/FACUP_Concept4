@@ -5,9 +5,9 @@ var director = null;
 
 script.createEvent("OnStartEvent").bind(OnStart);
 
-global.roundNumber = 0;
-global.totalRounds = 10;
-global.totalCountries = 20;
+// this values are initialized in the PickRandomCountries subscene
+global.totalRounds = null;
+global.totalCountries = null;
 global.pickedCountries = [];
 
 function OnStart() {

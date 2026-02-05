@@ -1,4 +1,8 @@
 //@input SceneObject parent
+//@ui {"widget":"separator"}
+//@input int totalRounds=10
+//@ui {"widget":"separator"}
+//@input int totalCountries=20
 
 //_________________________Director Setup_________________________//
 script.subScene = new global.SubScene(script, script.parent);
@@ -12,6 +16,8 @@ script.subScene.SetUpdate(Update);
 //_________________________Director functions_____________________//
 
 function Start() {
+  global.totalCountries = script.totalCountries;
+  global.totalRounds = script.totalRounds;
   PickRandomCountryIndex();
 }
 function OnLateStart() {

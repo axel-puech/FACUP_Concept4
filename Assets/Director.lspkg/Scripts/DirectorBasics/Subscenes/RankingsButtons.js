@@ -11,9 +11,18 @@ script.subScene.OnStop = Stop;
 script.subScene.SetUpdate(Update);
 
 //__________________________Variables_____________________________//
+var pickingAnimFinished = false;
+
+//________Caller____________//
 const rankingButtonCaller = script.subScene.CreateCaller(
   "rankingButtonEvent",
   0,
+);
+
+//________Listener___________//
+const animCountryPickingListener = script.subScene.CreateListener(
+  "animCountryPickingEvent",
+  TogglePickingAnimFinished,
 );
 
 // _______________________Setup Interactions______________________//
@@ -23,8 +32,11 @@ script.buttons.forEach(function (button, index) {
   var interaction = button.getComponent("Component.InteractionComponent");
 
   interaction.onTap.add(function () {
-    rankingButtonCaller.Call(index + 1);
-    interaction.enabled = false;
+    if (pickingAnimFinished) {
+      rankingButtonCaller.Call(index + 1);
+      interaction.enabled = false;
+    }
+    pickingAnimFinished = false;
   });
 });
 
@@ -47,4 +59,8 @@ function ResetInteractions() {
     var interaction = button.getComponent("Component.InteractionComponent");
     interaction.enabled = true;
   });
+}
+
+function TogglePickingAnimFinished() {
+  pickingAnimFinished = true;
 }

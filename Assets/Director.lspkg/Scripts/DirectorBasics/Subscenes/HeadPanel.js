@@ -3,14 +3,15 @@
 //@ui {"widget":"label", "label":"Define the scrolling animation timings for the picking animation"}
 //@input float[] scrollingTimeDurations
 //@ui {"widget":"separator"}
+//@ui {"widget":"label", "label":"Duration final scale animation"}
+//@input float scaleDuration
+//@input float sizeMultiplier
+//@ui {"widget":"separator"}
 //@ui {"widget":"label", "label":"Head Panel & Materials"}
 //@input Asset.Material headPanelMaterial
 //@input SceneObject headPanel
 //@ui {"widget":"label", "label":"All Flags Textures - Respect Order"}
 //@input Asset.Texture[] headPanelFlagsTextures
-
-// Ne pas oublier de bloquer la selection tant que l'animation
-// de scrolling n'est pas terminée
 
 //_________________________Director Setup_________________________//
 script.subScene = new global.SubScene(script, script.parent);
@@ -43,10 +44,35 @@ const rankingButtonListener = script.subScene.CreateListener(
 );
 
 //________Caller____________//
+// This caller to indicate that the country picking animation is finished
 const animCountryPickingCaller = script.subScene.CreateCaller(
   "animCountryPickingEvent",
   null,
 );
+
+const endOfGameCaller = script.subScene.CreateCaller("endOfGameEvent", null);
+
+//__________________________Animations____________________________//
+
+const scaleAnim = new Animation(
+  script.getSceneObject(),
+  script.scaleDuration,
+  ScaleAnimUpdate,
+  RepeatMode.PingPong,
+);
+
+scaleAnim.Easing = QuadraticIn;
+
+// Get the current scale of the head panel
+var transform = script.headPanel.getTransform();
+var currentScale = transform.getLocalScale().x;
+
+function ScaleAnimUpdate(ratio) {
+  var scaleValue = currentScale + ratio * script.sizeMultiplier; // Scale to x 1.5
+  transform.setLocalScale(new vec3(1, 1, 1).uniformScale(scaleValue));
+}
+
+scaleAnim.AddTimeCodeEvent(1, function () {});
 
 //_________________________Director functions_____________________//
 
@@ -77,6 +103,7 @@ function OnButtonClicked(selectedButtonIndex) {
   // If we reach the total rounds -> disable the head panel
   if (localRoundIndex >= global.totalRounds) {
     script.headPanel.enabled = false;
+    endOfGameCaller.Call();
   } else {
     // var texture =
     //   script.headPanelFlagsTextures[global.pickedCountries[localRoundIndex]];
@@ -110,10 +137,10 @@ function UpdateTextureAfterDelay() {
   var randomCountryId = Math.floor(Math.random() * (global.totalCountries - 1));
   var texture = script.headPanelFlagsTextures[randomCountryId];
   script.headPanelMaterial.mainPass.baseTex = texture;
-  print("Random Country Id: " + randomCountryId);
 }
 
 function UpdateLastTextureAfterDelay() {
-  print("Updating last texture to picked country");
   script.headPanelMaterial.mainPass.baseTex = textureToSet;
+  scaleAnim.Start(1);
+  animCountryPickingCaller.Call();
 }
